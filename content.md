@@ -165,7 +165,7 @@ Junit comme "driver" de test]::
 - trop de temps => un test Junit est toujours la manière **la plus simple de lancer son programme** en le développant ! profiter alors des erreurs rencontrées pour les mettre en vérifications. Et tester peut même être le point d'entrée du développement (TDD) ou être utile en phase de conception technique !
 - après moi le déluge => à la prochaine évolution ce sera souvent **de nouveau vous** !
 - satisfaction client => **BDD** et **ATDD** la contrôlent ! plus largement, autant avoir balisé le plus finement possible ce qu'on leur fournit, ça fait ça en moins d'inconnu 
-- s'il y a des testeurs, ce n'est pas aux développeurs de tester => un développeur qui n'exécute par son programme n'est oas un développeur ; et voir le point 3.
+- s'il y a des testeurs, ce n'est pas aux développeurs de tester => un développeur qui n'exécute pas son programme n'est pas un développeur ; et voir le point 3.
 
 [
 Mais que nous apprend la crise logicielle des années 80 ?
@@ -325,7 +325,7 @@ Un code fiable est un code sans bug ! C'est le premier niveau de la qualité log
   - ce qui est clé pour garantir une certaine qualité, comme vu
   - popularisé par Kent Beck dans la méthode de développement Extreme Programming (XP) après son expérience chez Chrysler
 - par l'**automatisation** un maximum de tests, en général lancés lors de l'arrivée d'un nouveau commit
-- à mettre en place **dès le début** du développement, car c'est alors plus facile d'y rendre les développeurs "accrocs" (gamification : "cup of coffee"...)
+- à mettre en place **dès le début** du développement (en même temps que le build !), car c'est alors plus facile d'y rendre les développeurs "accros" (gamification : "cup of coffee"...)
 
 [
 Ci vient de Kent Beck 1999 XP
@@ -343,7 +343,7 @@ Getting a team addicted to automated testing is simpler to achieve if you start 
   - lancez quand même les tests en local avant de committer ;)
 - Solutions :
   - serveur : [Jenkins](https://jenkins.io/) (répandu en Java), Gitlab CI
-  - Cloud : [Travis](http://travis-ci.org/) pour Github (simple, intégré, [supporte Java](https://docs.travis-ci.com/user/languages/java/)), Gitlab Cloud
+  - Cloud : Github CI, [Travis](http://travis-ci.org/) pour Github (simple, intégré, [supporte Java](https://docs.travis-ci.com/user/languages/java/)), Gitlab Cloud
 
 [
 Without continuous inte￾gration, your software is broken until somebody proves it works
@@ -587,7 +587,7 @@ Junit5 :
         WrongNumeroSecuException thrown = Assertions.assertThrows(ApplicationException.class, () -> {
         // When...code à tester
     });
-    Assertions.assertEquals("Aurait dû lever WrongNumeroSecuException !", exception.getMessage());
+    Assertions.assertEquals("Aurait dû lever WrongNumeroSecuException !", thrown.getMessage());
 ```
 
 AssertJ :
@@ -616,6 +616,12 @@ Filter maven surefire
 
 ---
 
+## Codage et exécution dans IntelliJ
+
+![bg 53%](binaries/ipi_test_intellij_ihm_annotee.png)
+
+---
+
 ## Quelques pratiques
 
 - lancer les tests : avant tout le faire dans votre IDE : Clic droit > Debug !
@@ -629,8 +635,8 @@ Filter maven surefire
 
 [
 TODO !
-  IntelliJ : CTRL-Maj-F10, ou l'universel Alt-Entrée
-  Eclipse : Alt-Shift-D,J
+  IntelliJ : CTRL-Maj-F10, ou l'universel Alt-Entrée ; Ctrl-espace pour autocomplétion
+  Eclipse : Alt-Shift-D,J ; Ctrl-espace pour autocomplétion
 Petite disgression, la dualité du code et des données : tout code est données (le fichier de code), mais de la donnée peut aussi être du code (fichier de configuration), et parfois les deux à la fois (XML exprimant des règles ex. XACML ou une interface graphique ex. React.js).
 ]::
 
